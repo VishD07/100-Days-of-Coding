@@ -33,47 +33,35 @@ scissors = '''
 
 # start of the game
 
-choice = (input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors\n0/1/2:"))
-pc_choice = random.randint(0,2)
+print("Welcome to your death you have to play a roack paper scissor game to stay alive")
+options = [rock, paper, scissors] # creating list of our ascii arts so that we can use afterwards
+choice = int(input("Now! quickly chose something - Rock - type 0, Paper - type 1 Scissor - type - 2 ")) # telling user to tell number. we took this as integer and put in options 
+your_choice = options[choice] # creating variable for our choice number with option list extact so that if we print this we will directly get output of roack paper or scissor
+print("You choose") 
+print(your_choice) # our choice
 
-if not choice.isdigit():
-  print("You've entered an invalid value, try again and choose a number between 0-2.")
-else:
-  choice = int(choice)
-  if choice > 2:
-    print("You've entered an invalid number, try again and choose a number between 0-2.")
-  elif choice == 0 or choice == 1 or choice == 2:
-    if choice == 0:
-      print(f"You chose: Rock {rock}")
-    elif choice == 1:
-      print(f"You chose: Paper {paper}")
-    elif choice == 2:
-      print(f"You chose: Scissors {scissors}")
+comp_choice = random.choice(options)
+print("Computer choose")
+print(comp_choice)
 
-    if computers_choice == 0:
-      print(f"The computer chose: Rock {rock}")
-      if choice == 2:
-        print("You lose, Rock wins against scissors.")
-      elif choice == 0:
-        print("It's a draw!")
-      else:
-        print("You win!")
+if your_choice == comp_choice:
+    print("Tie")
 
-    elif computers_choice == 1:
-      print(f"The computer chose: Paper {paper}")
-      if choice == 0:
-        print("You lose, Paper wins against rock.")
-      elif choice == 0:
-        print("It's a draw!")
-      else:
-        print("You win!")
+if your_choice == rock and comp_choice == scissors:
+    print("You win")
 
-    elif computers_choice == 2:
-      print(f"The computer chose: Scissors {scissors}")
-      if choice == 1:
-        print("You lose, Scissors win against paper.")
-      elif choice == 2:
-        print("It's a draw!")
-      else:
-        print("You win!") 
+if your_choice == rock and comp_choice == paper:
+    print("Computer wins ")
+
+if your_choice == paper and comp_choice == rock:
+    print("You win")
+
+if your_choice == paper and comp_choice == scissors:
+    print("Computer wins")
+
+if your_choice == scissors and comp_choice == rock:
+    print("Computer wins")
+
+if your_choice == scissors and comp_choice == paper:
+    print("You win")
 
